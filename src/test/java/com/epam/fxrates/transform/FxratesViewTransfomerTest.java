@@ -2,11 +2,13 @@ package com.epam.fxrates.transform;
 
 import com.epam.fxrates.dal.domain.Fxrate;
 import com.epam.fxrates.web.domain.FxrateView;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.assertj.core.api.Assert;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.MockitoAnnotations;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Teset for FxratesViewTransfomer.
@@ -21,7 +23,7 @@ public class FxratesViewTransfomerTest {
     @InjectMocks
     private FxratesViewTransfomer underTest;
 
-    @Before
+    @BeforeEach
     public void setup() {
         MockitoAnnotations.initMocks(this);
     }
@@ -37,7 +39,7 @@ public class FxratesViewTransfomerTest {
         FxrateView result = underTest.transform(fxrateTest);
 
         //THEN
-        Assert.assertEquals(result.getPair(), fxrateTest.getBaseCurrencyCode()+fxrateTest.getTargetCurrencyCode());
+        assertEquals(result.getPair(), fxrateTest.getBaseCurrencyCode()+fxrateTest.getTargetCurrencyCode());
     }
 
     @Test
@@ -50,8 +52,8 @@ public class FxratesViewTransfomerTest {
         FxrateView result = underTest.transform(fxrateTest);
 
         //THEN
-        Assert.assertEquals(result.getPair(), fxrateTest.getBaseCurrencyCode()+fxrateTest.getTargetCurrencyCode());
-        Assert.assertEquals(result.getRate(), fxrateTest.getRate());
+        assertEquals(result.getPair(), fxrateTest.getBaseCurrencyCode()+fxrateTest.getTargetCurrencyCode());
+        assertEquals(result.getRate(), fxrateTest.getRate());
     }
 
 }

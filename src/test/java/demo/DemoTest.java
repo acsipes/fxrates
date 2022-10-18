@@ -9,11 +9,11 @@ import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 import org.apache.tomcat.util.buf.HexUtils;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.test.context.SpringBootTest;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
@@ -47,8 +47,12 @@ import java.util.stream.Stream;
 import static demo.StatusOne.ORDER;
 import static demo.StatusOne.ORDER_PENDING;
 import static java.lang.String.valueOf;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@SpringBootTest
+@ExtendWith(MockitoExtension.class)
 public class DemoTest {
 
     private AbbriviationCreator underTestString;
@@ -56,7 +60,7 @@ public class DemoTest {
     @Value("string value")
     private String value;
 
-    @Before
+    @BeforeEach
     public void setup() {
         underTestString = new AbbriviationCreator();
     }
@@ -113,11 +117,11 @@ public class DemoTest {
 //                var sortableList = new ArrayList<>(possible);
                 possible.sort(Comparator.comparing(Omega::getOrder));
 //                sortableList.sort(Comparator.comparing(Omega::getOrder));
-                System.out.println("possible:" +possible);
+                System.out.println("possible:" + possible);
 //                System.out.println("sortableList:" +sortableList);
 //                System.out.println("eq:" + sortableList.equals(possible));
             } else
-                System.out.println(i +" has no match in latest");
+                System.out.println(i + " has no match in latest");
         }
     }
 
@@ -572,7 +576,7 @@ public class DemoTest {
     @Test
     public void emptyStringCheck() {
         String empty = "";
-        Assert.assertTrue(empty.isEmpty());
+        assertTrue(empty.isEmpty());
     }
 
     @Test
@@ -650,7 +654,7 @@ public class DemoTest {
         String text = "asdQÄW.Eqw-e";
         boolean regex = text.matches("^[a-zA-Z./'-Ä]*$");
         System.out.println("result: " + regex);
-        Assert.assertTrue(regex);
+        assertTrue(regex);
     }
 
     @Test
@@ -681,21 +685,17 @@ public class DemoTest {
 
         String actual = underTestString.createAbbreviation(name);
 
-        Assert.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testEmptyStringTest() {
-        String name = "";
-
-        String actual = underTestString.createAbbreviation(name);
+        assertThrows(IllegalArgumentException.class, () -> underTestString.createAbbreviation(""));
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testNullStringTest() {
-        String name = null;
-
-        String actual = underTestString.createAbbreviation(name);
+        assertThrows(IllegalArgumentException.class, () -> underTestString.createAbbreviation(null));
     }
 
     @Test
@@ -707,10 +707,10 @@ public class DemoTest {
 
         modify(i, bigInt, s, sb);
 
-        Assert.assertEquals(1, i);
-        Assert.assertEquals(new Integer("1"), bigInt);
-        Assert.assertEquals("foo", s);
-        Assert.assertEquals("stuff", sb.toString());
+        assertEquals(1, i);
+        assertEquals(new Integer("1"), bigInt);
+        assertEquals("foo", s);
+        assertEquals("stuff", sb.toString());
     }
 
     @Test
@@ -718,8 +718,8 @@ public class DemoTest {
         Integer x = new Integer("1");
         Integer y = new Integer(1);
 
-        Assert.assertFalse(x == y);
-        Assert.assertTrue(x.equals(y));
+        assertFalse(x == y);
+        assertTrue(x.equals(y));
     }
 
     @Test
@@ -727,8 +727,8 @@ public class DemoTest {
         String a = "foo";
         String b = "foo";
 
-        Assert.assertTrue(a == b);
-        Assert.assertTrue(a.equals(b));
+        assertTrue(a == b);
+        assertTrue(a.equals(b));
     }
 
     @Test
@@ -736,8 +736,8 @@ public class DemoTest {
         String a = new String("foo");
         String b = new String("foo");
 
-        Assert.assertFalse(a == b);
-        Assert.assertTrue(a.equals(b));
+        assertFalse(a == b);
+        assertTrue(a.equals(b));
     }
 
     @Test
@@ -747,8 +747,8 @@ public class DemoTest {
 
         String actual = whiteSpaces.trim();
 
-        Assert.assertEquals(expected, actual);
-        Assert.assertTrue(actual.isEmpty());
+        assertEquals(expected, actual);
+        assertTrue(actual.isEmpty());
 
     }
 
@@ -935,7 +935,7 @@ public class DemoTest {
         String decodedString = new String(decodedBytes);
         System.out.println("The result:" + decodedString);
 
-        Assert.assertEquals(text, decodedString);
+        assertEquals(text, decodedString);
     }
 
     @Test
@@ -960,10 +960,10 @@ public class DemoTest {
         long expected3 = 3L;
         long expected4 = 4L;
 
-        Assert.assertEquals(expected1, result1);
-        Assert.assertEquals(expected2, result2);
-        Assert.assertEquals(expected3, result3);
-        Assert.assertEquals(expected4, result4);
+        assertEquals(expected1, result1);
+        assertEquals(expected2, result2);
+        assertEquals(expected3, result3);
+        assertEquals(expected4, result4);
 
     }
 
@@ -990,10 +990,10 @@ public class DemoTest {
         Boolean actual3 = getTwoBooleansWirthOr(result31, result32);
         Boolean actual4 = getTwoBooleansWirthOr(result41, result42);
 
-        Assert.assertEquals(expected1, actual1);
-        Assert.assertEquals(expected2, actual2);
-        Assert.assertEquals(expected3, actual3);
-        Assert.assertEquals(expected4, actual4);
+        assertEquals(expected1, actual1);
+        assertEquals(expected2, actual2);
+        assertEquals(expected3, actual3);
+        assertEquals(expected4, actual4);
     }
 
     @Test
@@ -1111,7 +1111,7 @@ public class DemoTest {
         ints.add(8);
         ints.add(2);
 
-        Assert.assertTrue(ints.contains(1));
+        assertTrue(ints.contains(1));
     }
 
     @Test
@@ -1161,6 +1161,7 @@ public class DemoTest {
 
     }
 }
+
 @Data
 @RequiredArgsConstructor
 @ToString

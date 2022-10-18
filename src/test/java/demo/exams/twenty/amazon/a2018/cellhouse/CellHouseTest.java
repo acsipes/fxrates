@@ -1,10 +1,11 @@
 package demo.exams.twenty.amazon.a2018.cellhouse;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.LinkedList;
 import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CellHouseTest {
 
@@ -34,7 +35,7 @@ public class CellHouseTest {
 
         List<Integer> actualList = underTest.cellsStates(statesList, days);
 
-        Assert.assertEquals(expectedList, actualList);
+        assertEquals(expectedList, actualList);
     }
 
     @Test
@@ -64,7 +65,7 @@ public class CellHouseTest {
 
         List<Integer> actualList = underTest.cellsStates(statesList, days);
 
-        Assert.assertEquals(expectedList, actualList);
+        assertEquals(expectedList, actualList);
 
     }
 

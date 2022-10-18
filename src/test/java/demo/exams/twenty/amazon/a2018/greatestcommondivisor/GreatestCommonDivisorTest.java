@@ -1,7 +1,8 @@
 package demo.exams.twenty.amazon.a2018.greatestcommondivisor;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class GreatestCommonDivisorTest {
 
@@ -14,7 +15,7 @@ public class GreatestCommonDivisorTest {
 
         int actual = underTest.calcGCD(num, arr);
 
-        Assert.assertEquals(expectedResult, actual);
+        assertEquals(expectedResult, actual);
 
     }
 
@@ -27,7 +28,7 @@ public class GreatestCommonDivisorTest {
 
         int actual = underTest.calcGCD(num, arr);
 
-        Assert.assertEquals(expectedResult, actual);
+        assertEquals(expectedResult, actual);
     }
 
     @Test
@@ -39,7 +40,7 @@ public class GreatestCommonDivisorTest {
 
         int actual = underTest.calcGCD(num, arr);
 
-        Assert.assertEquals(expectedResult, actual);
+        assertEquals(expectedResult, actual);
     }
 
     @Test
@@ -51,7 +52,7 @@ public class GreatestCommonDivisorTest {
 
         int actual = underTest.calcGCD(num, arr);
 
-        Assert.assertEquals(expectedResult, actual);
+        assertEquals(expectedResult, actual);
     }
 
     @Test
@@ -63,7 +64,7 @@ public class GreatestCommonDivisorTest {
 
         int actual = underTest.calcGCD(num, arr);
 
-        Assert.assertEquals(expectedResult, actual);
+        assertEquals(expectedResult, actual);
      }
 
     @Test
@@ -75,6 +76,6 @@ public class GreatestCommonDivisorTest {
 
         int actual = underTest.calcGCD(num, arr);
 
-        Assert.assertEquals(expectedResult, actual);
+        assertEquals(expectedResult, actual);
     }
 }

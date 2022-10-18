@@ -1,10 +1,12 @@
 package demo.exams.twenty.amazon.a2018.cluster;
 
-import org.junit.Assert;
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 
 import java.util.LinkedList;
 import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ClusterTest {
 
@@ -51,11 +53,11 @@ public class ClusterTest {
 
         List<Integer[]> actual = underTest.computingDevices(memory, foreground, background);
 
-        Assert.assertEquals(actual.size(), expected.size());
+        assertEquals(actual.size(), expected.size());
 
         for (int i = 0; i < expected.size(); i++) {
-            Assert.assertEquals(expected.get(i)[0], actual.get(i)[0]);
-            Assert.assertEquals(expected.get(i)[1], actual.get(i)[1]);
+            assertEquals(expected.get(i)[0], actual.get(i)[0]);
+            assertEquals(expected.get(i)[1], actual.get(i)[1]);
         }
     }
 
@@ -103,11 +105,11 @@ public class ClusterTest {
 
         List<Integer[]> actual = underTest.computingDevices(memory, foreground, background);
 
-        Assert.assertEquals(actual.size(), expected.size());
+        assertEquals(actual.size(), expected.size());
 
         for (int i = 0; i < expected.size(); i++) {
-            Assert.assertEquals(expected.get(i)[0], actual.get(i)[0]);
-            Assert.assertEquals(expected.get(i)[1], actual.get(i)[1]);
+            assertEquals(expected.get(i)[0], actual.get(i)[0]);
+            assertEquals(expected.get(i)[1], actual.get(i)[1]);
         }
     }
 
@@ -176,11 +178,11 @@ public class ClusterTest {
 
         List<Integer[]> actual = underTest.computingDevices(memory, foreground, background);
 
-        Assert.assertEquals(actual.size(), expected.size());
+        assertEquals(actual.size(), expected.size());
 
         for (int i = 0; i < expected.size(); i++) {
-            Assert.assertEquals(expected.get(i)[0], actual.get(i)[0]);
-            Assert.assertEquals(expected.get(i)[1], actual.get(i)[1]);
+            assertEquals(expected.get(i)[0], actual.get(i)[0]);
+            assertEquals(expected.get(i)[1], actual.get(i)[1]);
         }
     }
 
@@ -250,11 +252,11 @@ public class ClusterTest {
         List<Integer[]> actual = underTest.computingDevices(memory, foreground, background);
 
         //THEN
-        Assert.assertEquals(actual.size(), expected.size());
+        assertEquals(actual.size(), expected.size());
 
         for (int i = 0; i < actual.size(); i++) {
-            Assert.assertEquals(expected.get(i)[0], actual.get(i)[0]);
-            Assert.assertEquals(expected.get(i)[1], actual.get(i)[1]);
+            assertEquals(expected.get(i)[0], actual.get(i)[0]);
+            assertEquals(expected.get(i)[1], actual.get(i)[1]);
         }
     }
 }

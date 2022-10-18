@@ -1,10 +1,12 @@
 package demo.exams.twenty.emarsys.a2019;
 
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class DueDateCalculatorTest {
 
@@ -12,7 +14,7 @@ public class DueDateCalculatorTest {
     public static final int ONE_WORKING_DAY_TURNAROUND_TIME = 8;
     private DueDateCalculator underTest;
 
-    @Before
+    @BeforeEach
     public void setup() {
         underTest = new DueDateCalculator();
     }
@@ -25,7 +27,7 @@ public class DueDateCalculatorTest {
 
         LocalDateTime actual = underTest.calculateDueDate(submitDate, turnaroundTime);
 
-        Assert.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -36,7 +38,7 @@ public class DueDateCalculatorTest {
 
         LocalDateTime actual = underTest.calculateDueDate(submitDate, fourHoursTurnaroundTime);
 
-        Assert.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -46,7 +48,7 @@ public class DueDateCalculatorTest {
 
         LocalDateTime actual = underTest.calculateDueDate(submitDate, ONE_WORKING_DAY_TURNAROUND_TIME);
 
-        Assert.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -57,7 +59,7 @@ public class DueDateCalculatorTest {
 
         LocalDateTime actual = underTest.calculateDueDate(submitDate, fullWeekWorkingHoursTurnaroundTime);
 
-        Assert.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -67,20 +69,20 @@ public class DueDateCalculatorTest {
 
         LocalDateTime actual = underTest.calculateDueDate(submitDate, FOUR_WEEKS_WORKING_HOURS_TURNAROUND_TIME);
 
-        Assert.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
-    @Test(expected = WrongReportTimeException.class)
-    public void testCalculateDueDateWithAfterWorkReportTime() throws WrongReportTimeException {
+    @Test
+    public void testCalculateDueDateWithAfterWorkReportTime() {
         LocalDateTime submitDate = LocalDateTime.of(2019, 12, 16, 18, 15);
 
-        underTest.calculateDueDate(submitDate, FOUR_WEEKS_WORKING_HOURS_TURNAROUND_TIME);
+        assertThrows(WrongReportTimeException.class, () -> underTest.calculateDueDate(submitDate, FOUR_WEEKS_WORKING_HOURS_TURNAROUND_TIME));
     }
 
-    @Test(expected = WrongReportTimeException.class)
+    @Test
     public void testCalculateDueDateWithWeekendReportTime() throws WrongReportTimeException {
         LocalDateTime submitDate = LocalDateTime.of(2019, 12, 14, 10, 15);
 
-        underTest.calculateDueDate(submitDate, FOUR_WEEKS_WORKING_HOURS_TURNAROUND_TIME);
+        assertThrows(WrongReportTimeException.class, () -> underTest.calculateDueDate(submitDate, FOUR_WEEKS_WORKING_HOURS_TURNAROUND_TIME));
     }
 }

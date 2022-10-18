@@ -1,7 +1,9 @@
 package demo;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class booleansCheckkTest {
     
@@ -19,7 +21,7 @@ public class booleansCheckkTest {
         
         boolean actaul = (!isKmr && !isAndroid && !isWeb || isCreateSurvey);
         
-        Assert.assertTrue(actaul);
+        assertTrue(actaul);
     }
 
     @Test
@@ -28,7 +30,7 @@ public class booleansCheckkTest {
         
         boolean actaul = (!isKmr && !isAndroid && !isWeb || isCreateSurvey);
         
-        Assert.assertTrue(actaul);
+        assertTrue(actaul);
     }
 
     @Test
@@ -37,7 +39,7 @@ public class booleansCheckkTest {
         
         boolean actaul = (!isKmr && !isAndroid && !isWeb || isCreateSurvey);
         
-        Assert.assertTrue(actaul);
+        assertTrue(actaul);
     }
 
     @Test
@@ -46,7 +48,7 @@ public class booleansCheckkTest {
         
         boolean actaul = (!isKmr && !isAndroid && !isWeb || isCreateSurvey);
         
-        Assert.assertTrue(actaul);
+        assertTrue(actaul);
     }
 
     @Test
@@ -56,6 +58,6 @@ public class booleansCheckkTest {
         
         boolean actaul = (!isKmr && !isAndroid && !isWeb || isCreateSurvey);
         
-        Assert.assertFalse(actaul);
+        assertFalse(actaul);
     }
 }

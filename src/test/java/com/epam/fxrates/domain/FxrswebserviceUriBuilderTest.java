@@ -1,15 +1,11 @@
 package com.epam.fxrates.domain;
 
 import com.epam.fxrates.dal.FxrswebserviceUriBuilder;
-import com.epam.fxrates.dal.domain.Fxrates;
 import com.epam.fxrates.properties.ApplicationProperties;
-import org.junit.Before;
-import org.junit.Test;
-import org.mockito.BDDMockito;
+import org.junit.jupiter.api.BeforeEach;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.web.client.HttpClientErrorException;
 
 /**
  * Test for FxrswebserviceUriBuilder.
@@ -32,7 +28,7 @@ public class FxrswebserviceUriBuilderTest {
     @Mock
     private ApplicationProperties applicationProperties;
 
-    @Before
+    @BeforeEach
     public void setup() {
         MockitoAnnotations.initMocks(this);
     }

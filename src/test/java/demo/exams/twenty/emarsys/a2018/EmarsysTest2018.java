@@ -1,6 +1,6 @@
 package demo.exams.twenty.emarsys.a2018;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
 import java.util.LinkedList;

@@ -1,10 +1,11 @@
 package demo.exams.twenty.amazon.a2018.steakhouses;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SteakHouseTest {
 
@@ -37,7 +38,7 @@ public class SteakHouseTest {
 
         actualOne = undertest.nearestXsteakHouses(3, sampleList1, 1);
 
-        Assert.assertEquals(expected1, actualOne);
+        assertEquals(expected1, actualOne);
     }
     @Test
     public void amazonRealFirstUnitTest2() {
@@ -87,7 +88,7 @@ public class SteakHouseTest {
 
         actual2 = undertest.nearestXsteakHouses(6, sampleList2, 3);
 
-        Assert.assertEquals(expected2, actual2);
+        assertEquals(expected2, actual2);
 
     }
     @Test

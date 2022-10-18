@@ -1,14 +1,15 @@
 package com.epam.fxrates.service;
 
 import com.epam.fxrates.dal.domain.Fxrate;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.MockitoAnnotations;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Test for FxratesChecker.
@@ -25,7 +26,7 @@ public class FxratesCheckerTest {
     @InjectMocks
     private FxratesChecker underTest;
 
-    @Before
+    @BeforeEach
     public void setup() {
         MockitoAnnotations.initMocks(this);
     }
@@ -59,7 +60,7 @@ public class FxratesCheckerTest {
         boolean result = underTest.fxratesNotNull(fxrateList);
 
         //THEN
-        Assert.assertEquals(result, true);
+        assertEquals(result, true);
     }
 
     @Test
@@ -72,6 +73,6 @@ public class FxratesCheckerTest {
         boolean result = underTest.fxratesNotNull(fxrateList);
 
         //THEN
-        Assert.assertEquals(result, true);
+        assertEquals(result, true);
     }
 }

@@ -1,7 +1,8 @@
 package gameoflife;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class GameOfLifeTest {
 
@@ -13,7 +14,7 @@ public class GameOfLifeTest {
         
         long result= underTest.getLivingCellsNumber();
 
-        Assert.assertEquals(EXPECTED_NULL_CELL_AMOUNT,result);
+        assertEquals(EXPECTED_NULL_CELL_AMOUNT,result);
     }
 
     @Test
@@ -21,7 +22,7 @@ public class GameOfLifeTest {
 
         underTest.calculateNextState();
 
-        Assert.assertEquals(EXPECTED_NULL_CELL_AMOUNT, underTest.getLivingCellsNumber());
+        assertEquals(EXPECTED_NULL_CELL_AMOUNT, underTest.getLivingCellsNumber());
     }
     
     @Test
@@ -31,7 +32,7 @@ public class GameOfLifeTest {
 
         underTest.calculateNextState();
 
-        Assert.assertEquals(EXPECTED_NULL_CELL_AMOUNT, underTest.getLivingCellsNumber());
+        assertEquals(EXPECTED_NULL_CELL_AMOUNT, underTest.getLivingCellsNumber());
     }    
 
     @Test
@@ -39,7 +40,7 @@ public class GameOfLifeTest {
         
         underTest.add(new Cell(1,2));
 
-        Assert.assertEquals(1, underTest.getLivingCellsNumber());
+        assertEquals(1, underTest.getLivingCellsNumber());
     }
     
     @Test
@@ -51,7 +52,7 @@ public class GameOfLifeTest {
 
         underTest.calculateNextState();
 
-        Assert.assertEquals(1, underTest.getLivingCellsNumber());
+        assertEquals(1, underTest.getLivingCellsNumber());
     }   
     
 }

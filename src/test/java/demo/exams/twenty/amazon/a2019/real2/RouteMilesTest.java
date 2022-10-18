@@ -1,14 +1,15 @@
 package demo.exams.twenty.amazon.a2019.real2;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.LinkedList;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class RouteMilesTest {
     
-    @Test    
+    @Test
     public void testCase1() {
         RouteMiles underTest = new RouteMiles();
         int memory = 20;
@@ -62,11 +63,11 @@ public class RouteMilesTest {
 
         List<List<Integer>> actual = underTest.optimalUtilization(memory, foreground, background);
 
-        Assert.assertEquals(actual.size(), expected.size());
+        assertEquals(actual.size(), expected.size());
 
         for (int i = 0; i < expected.size(); i++) {
-            Assert.assertEquals(expected.get(i).get(0), actual.get(i).get(0));
-            Assert.assertEquals(expected.get(i).get(1), actual.get(i).get(1));
+            assertEquals(expected.get(i).get(0), actual.get(i).get(0));
+            assertEquals(expected.get(i).get(1), actual.get(i).get(1));
         }
     }
 }

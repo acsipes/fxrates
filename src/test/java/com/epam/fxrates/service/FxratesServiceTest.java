@@ -5,10 +5,9 @@ import com.epam.fxrates.dal.UsdRatesDao;
 import com.epam.fxrates.dal.domain.Fxrate;
 import com.epam.fxrates.dal.domain.Fxrates;
 import com.epam.fxrates.properties.ApplicationProperties;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 import org.mockito.BDDMockito;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -16,11 +15,9 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Test For FxratesService.
@@ -51,12 +48,12 @@ public class FxratesServiceTest {
     @Mock
     FxrswebserviceUriBuilder fxrswebserviceUriBuilder;
 
-    @Before
+    @BeforeEach
     public void setup() {
         MockitoAnnotations.initMocks(this);
     }
 
-    @Ignore
+    @Disabled
     @Test
     public void getTargetCurrenciesShouldReturnFxratesWhenCalledRespponseEntity() {
         // GIVEN
@@ -91,10 +88,10 @@ public class FxratesServiceTest {
         Fxrates resultFxrates = underTest.getTargetCurrencies(USD, EUR_HUF_CHF);
 
         //THEN
-        Assert.assertEquals(resultFxrates, testFxrates);
+        assertEquals(resultFxrates, testFxrates);
     }
 
-    @Ignore
+    @Disabled
     @Test
     public void getTargetCurrenciesShouldReturnFxratesWhenCalledMixturedCurrencies() {
         // GIVEN
@@ -130,6 +127,6 @@ public class FxratesServiceTest {
         Fxrates resultFxrates = underTest.getTargetCurrencies(UsD, EUr_huf_cHF);
 
         //THEN
-        Assert.assertEquals(resultFxrates, testFxrates);
+        assertEquals(resultFxrates, testFxrates);
     }
 }

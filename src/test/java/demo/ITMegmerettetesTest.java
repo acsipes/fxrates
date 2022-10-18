@@ -1,7 +1,8 @@
 package demo;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ITMegmerettetesTest {
     
@@ -10,7 +11,7 @@ public class ITMegmerettetesTest {
 
         long first = 1L;
         long second = 2L - 1L;
-        Assert.assertEquals(first, second);
+        assertEquals(first, second);
     }
     
     

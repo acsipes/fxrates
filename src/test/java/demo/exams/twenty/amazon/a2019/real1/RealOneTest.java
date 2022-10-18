@@ -1,10 +1,11 @@
 package demo.exams.twenty.amazon.a2019.real1;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.LinkedList;
 import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RealOneTest {
     
@@ -22,10 +23,10 @@ public class RealOneTest {
 
         int actual = undertest.minimumTime(sum, files);
 
-        Assert.assertEquals(expected, actual);
+        assertEquals(expected, actual);
 
         int actual2 = undertest.minimumTime2(sum, files);
-        Assert.assertEquals(expected, actual2);
+        assertEquals(expected, actual2);
     }
 
     @Test
@@ -45,10 +46,10 @@ public class RealOneTest {
 
         int actual = undertest.minimumTime(sum, files);
 
-        Assert.assertEquals(expected, actual);
+        assertEquals(expected, actual);
         
         int actual2 = undertest.minimumTime2(sum, files);
-        Assert.assertEquals(expected, actual2);
+        assertEquals(expected, actual2);
     }
 
 }
