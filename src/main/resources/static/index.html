@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="store">
+<head>
+    <link rel="stylesheet" tpye="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" tpye="text/css" href="style.css" />
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="product.js"></script>
+</head>
+<body class="index-body" ng-controller="StoreController as storeCtrl">
+<main class="container">
+    <label>FROM: <input class="form-control" ng-model="storeCtrl.fromCurrency"></label>
+    <label>TO: <input class="form-control" ng-model="storeCtrl.toCurrencies"></label>
+    <button type="button" class="btn btn-primary" ng-click="storeCtrl.loadCurrencyPairs()">Load currency pairs</button>
+    <br>
+    <ul class="list-group margin-for-listgroup">
+        <li class="list-group-item" ng-repeat="product in storeCtrl.products">
+            <product-panels></product-panels>
+        </li>
+    </ul>
+</main>
+</body>
+</html>

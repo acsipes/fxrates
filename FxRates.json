@@ -1,0 +1,76 @@
+{
+    "current_version": 1.1,
+    "effective_date": "05/05/2017",
+    "fxrates": [
+        {
+            "base_currency_code": "USD",
+            "target_currency_code": "AUD",
+            "rate": "1.3262000000E0"
+        },
+        {
+            "base_currency_code": "USD",
+            "target_currency_code": "GBP",
+            "rate": "8.0220000000E-1"
+        },
+        {            
+            "base_currency_code": "USD",
+            "target_currency_code": "CHF",
+            "rate": "1.0054000000E0"
+        },
+        {            
+            "base_currency_code": "USD",
+            "target_currency_code": "HUF",
+            "rate": "3.3262000000E0"
+        },
+        {            
+            "base_currency_code": "USD",
+            "target_currency_code": "EUR",
+            "rate": "1.00162000000E0"
+        },
+        {            
+            "base_currency_code": "USD",
+            "target_currency_code": "YEN",
+            "rate": "2.3562000000E0"
+        },
+        {            
+            "base_currency_code": "USD",
+            "target_currency_code": "USD",
+            "rate": "1.0000000000E0"
+        },
+        {
+            "base_currency_code": "EUR",
+            "target_currency_code": "AUD",
+            "rate": "1.3262000000E0"
+        },
+        {
+            "base_currency_code": "EUR",
+            "target_currency_code": "GBP",
+            "rate": "8.0220000000E-1"
+        },
+        {            
+            "base_currency_code": "EUR",
+            "target_currency_code": "CHF",
+            "rate": "1.0054000000E0"
+        },
+        {            
+            "base_currency_code": "EUR",
+            "target_currency_code": "HUF",
+            "rate": "3.3262000000E0"
+        },
+        {            
+            "base_currency_code": "EUR",
+            "target_currency_code": "EUR",
+            "rate": "1.00162000000E0"
+        },
+        {            
+            "base_currency_code": "EUR",
+            "target_currency_code": "YEN",
+            "rate": "2.3562000000E0"
+        },
+        {            
+            "base_currency_code": "EUR",
+            "target_currency_code": "USD",
+            "rate": "1.0000000000E0"
+        }
+    ]   
+}
