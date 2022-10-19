@@ -8,26 +8,32 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class ClientGetter {
 
     public List<String> getTopKClients(List<ClientTransaction> clientTrans, int k) {
-        Map<Long, Long> groups = new HashMap<>();
+        var groupedClientTxs = clientTrans
+                .stream()
+                .collect(Collectors.groupingBy(ClientTransaction::getClientId));
 
-        clientTrans.forEach(it -> grouping(it, groups));
-
-        return getFirstKClients(sortByValueDesc(groups), k);
+        var result = new HashMap<Long, Long>();
+        groupedClientTxs.values().stream()
+                .map(this::sumClientTx)
+                .collect(Collectors.toList())
+                .forEach(result::putAll);
+        HashMap<Long, Long> descGroups = sortByValueDesc(result);
+        return getFirstKClients(descGroups, k);
 
     }
 
-    private void grouping(ClientTransaction clientTx, Map<Long, Long> groups) {
-        Long clientId = clientTx.getClientId();
-        if (groups.get(clientId) != null) {
-            long tempAmount = groups.get(clientTx.getClientId()) + clientTx.getAmount();
-            groups.put(clientId, tempAmount);
-        } else {
-            groups.put(clientId, clientTx.getAmount());
-        }
+    private Map<Long, Long> sumClientTx(List<ClientTransaction> clientTrans) {
+        var totalAmount = clientTrans.stream()
+                .mapToLong(ClientTransaction::getAmount)
+                .sum();
+        var result = new HashMap<Long, Long>();
+        result.put(clientTrans.get(0).getClientId(), totalAmount);
+        return result;
     }
 
     private List<String> getFirstKClients(Map<Long, Long> descGroups, int k) {
