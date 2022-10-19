@@ -18,30 +18,35 @@ public class ClientGetterTest {
         clientTx1.setAmount(100L);
 
         ClientTransaction clientTx2 = new ClientTransaction();
-        clientTx2.setClientId(1L);
-        clientTx2.setAmount(90L);
-
-        ClientTransaction clientTx3 = new ClientTransaction();
-        clientTx3.setClientId(2L);
-        clientTx3.setAmount(150L);
 
         ClientTransaction clientTx4 = new ClientTransaction();
         clientTx4.setClientId(3L);
         clientTx4.setAmount(180L);
 
+        ClientTransaction clientTx7 = new ClientTransaction();
+        clientTx7.setClientId(5L);
+        clientTx7.setAmount(200L);
+
+        ClientTransaction clientTx3 = new ClientTransaction();
+        clientTx3.setClientId(2L);
+        clientTx3.setAmount(150L);
+
         ClientTransaction clientTx5 = new ClientTransaction();
         clientTx5.setClientId(4L);
         clientTx5.setAmount(10L);
+
+        clientTx2.setClientId(1L);
+        clientTx2.setAmount(90L);
 
         ClientTransaction clientTx6 = new ClientTransaction();
         clientTx6.setClientId(4L);
         clientTx6.setAmount(100L);
 
-        ClientTransaction clientTx7 = new ClientTransaction();
-        clientTx7.setClientId(5L);
-        clientTx7.setAmount(200L);
+        ClientTransaction clientTx8 = new ClientTransaction();
+        clientTx8.setClientId(7L);
 
-        List<ClientTransaction> clientTxList = Arrays.asList(clientTx1, clientTx2, clientTx3, clientTx4, clientTx5, clientTx6, clientTx7);
+
+        List<ClientTransaction> clientTxList = Arrays.asList(clientTx5, clientTx1, clientTx7, clientTx3, clientTx4, clientTx6, clientTx2, clientTx8);
 
         int k = 3;
 

@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class ClientTransaction {
 
-    private Long clientId;
+    private long clientId;
 
-    private Long amount;
+    private long amount;
 }

@@ -12,51 +12,46 @@ import java.util.stream.Collectors;
 public class ClientGetter {
 
     public List<String> getTopKClients(List<ClientTransaction> clientTrans, int k) {
-        Map<Long, Long> groups = new HashMap<>();
 
-        clientTrans.forEach(it -> grouping(it, groups));
+        var groupedClientTxs = clientTrans
+                .stream()
+                .collect(Collectors.groupingBy(ClientTransaction::getClientId));
 
-        return getFirstKClients(sortByValueDesc(groups), k);
+        var result = new HashMap<Long, Long>();
+        groupedClientTxs.values().stream()
+                .map(this::sumClientTx)
+                .collect(Collectors.toList())
+                .forEach(result::putAll);
+        HashMap<Long, Long> descGroups = sortByValueDesc(result);
+        return getFirstKClients(descGroups, k);
 
     }
 
-    private void grouping(ClientTransaction clientTx, Map<Long, Long> groups) {
-        Long clientId = clientTx.getClientId();
-        if (groups.get(clientId) != null) {
-            long tempAmount = groups.get(clientTx.getClientId()) + clientTx.getAmount();
-            groups.put(clientId, tempAmount);
-        } else {
-            groups.put(clientId, clientTx.getAmount());
-        }
+    private Map<Long, Long> sumClientTx(List<ClientTransaction> clientTrans) {
+        var totalAmount = clientTrans.stream()
+                .mapToLong(ClientTransaction::getAmount)
+                .sum();
+        var result = new HashMap<Long, Long>();
+        result.put(clientTrans.get(0).getClientId(), totalAmount);
+        return result;
     }
 
     private List<String> getFirstKClients(Map<Long, Long> descGroups, int k) {
         return descGroups.entrySet()
                 .stream()
                 .limit(k)
-                .map(this::getClientId)
+                .map(it -> it.getKey().toString())
                 .collect(Collectors.toList());
-    }
-
-    private String getClientId(Map.Entry<Long, Long> it) {
-
-        return it.getKey().toString();
     }
 
     public HashMap<Long, Long> sortByValueDesc(Map<Long, Long> hm)
     {
         // Create a list from elements of HashMap
         List<Map.Entry<Long, Long> > list =
-                new LinkedList<Map.Entry<Long, Long> >(hm.entrySet());
+                new LinkedList<>(hm.entrySet());
 
-        // Sort the list
-        Collections.sort(list, new Comparator<Map.Entry<Long, Long> >() {
-            public int compare(Map.Entry<Long, Long> o1,
-                               Map.Entry<Long, Long> o2)
-            {
-                return (o2.getValue()).compareTo(o1.getValue());
-            }
-        });
+        // Sort the list by value desc
+        Collections.sort(list, (o1, o2) -> o2.getValue().compareTo(o1.getValue()));
 
         // put data from sorted list to hashmap
         HashMap<Long, Long> temp = new LinkedHashMap<Long, Long>();
