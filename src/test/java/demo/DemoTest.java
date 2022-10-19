@@ -397,7 +397,7 @@ public class DemoTest {
         list.add("two");
         list.add("three");
 
-        System.out.println("4th elem of list: " + list.get(4));
+        assertThrows(IndexOutOfBoundsException.class, () ->list.get(4));
 
     }
 
@@ -1018,9 +1018,7 @@ public class DemoTest {
 
         Long sampleState = 15100L;
 
-        Omega result = states.stream().filter(it -> it.getState().equals(sampleState.toString())).findFirst().orElseThrow(() -> new RuntimeException());
-
-        System.out.println("Result = " + result);
+        assertThrows(RuntimeException.class, () -> states.stream().filter(it -> it.getState().equals(sampleState.toString())).findFirst().orElseThrow(() -> new RuntimeException()));
 
     }
 

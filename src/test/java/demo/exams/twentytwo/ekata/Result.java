@@ -1,10 +1,11 @@
 package demo.exams.twentytwo.ekata;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Result {
 
@@ -16,7 +17,7 @@ public class Result {
         int result = finalInstances(instances, averageUtil);
 
         System.out.println("Result: " + result);
-        Assert.assertEquals(2, result);
+        assertEquals(2, result);
     }
     @Test
     public void run2() {
@@ -26,7 +27,7 @@ public class Result {
         int result = finalInstances(instances, averageUtil);
 
         System.out.println("Result: " + result);
-        Assert.assertEquals(3, result);
+        assertEquals(3, result);
     }
 
 

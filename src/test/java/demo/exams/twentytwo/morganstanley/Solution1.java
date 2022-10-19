@@ -1,7 +1,8 @@
 package demo.exams.twentytwo.morganstanley;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Solution1 {
 
@@ -10,7 +11,7 @@ public class Solution1 {
         String text = "statistics";
         int result = getUniqueCharacter(text);
         System.out.println("Result: " + result);
-        Assert.assertEquals(3, result);
+        assertEquals(3, result);
     }
 
     @Test
@@ -18,7 +19,7 @@ public class Solution1 {
         String text = "hackthegame";
         int result = getUniqueCharacter(text);
         System.out.println("Result: " + result);
-        Assert.assertEquals(3, result);
+        assertEquals(3, result);
     }
 
     @Test
@@ -26,7 +27,7 @@ public class Solution1 {
         String text = "falafal";
         int result = getUniqueCharacter(text);
         System.out.println("Result: " + result);
-        Assert.assertEquals(-1, result);
+        assertEquals(-1, result);
     }
 
     public static int getUniqueCharacter(String s) {

@@ -1,13 +1,12 @@
 package demo.exams.twentytwo.tesco;
-
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.Arrays;
 import java.util.List;
 
-@SpringBootTest
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class ClientGetterTest {
 
     private ClientGetter clientGetter = new ClientGetter();
@@ -50,7 +49,7 @@ public class ClientGetterTest {
 
         List<String> actual = clientGetter.getTopKClients(clientTxList, k);
 
-        Assert.assertEquals(expected, actual);
+        assertEquals(expected, actual);
 
 
     }

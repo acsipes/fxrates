@@ -1,10 +1,11 @@
 package demo.exams.twentytwo.morganstanley;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.math.BigInteger;
 import java.util.*;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Solution2 {
 
@@ -20,7 +21,7 @@ public class Solution2 {
         List<String> result = smallestNegativeBalance(debts);
         System.out.println("Result: " + result);
         List<String> expected = Arrays.asList("Alex", "Blake");
-        Assert.assertEquals(expected, result);
+        assertEquals(expected, result);
     }
 
     @Test
@@ -34,7 +35,7 @@ public class Solution2 {
         List<String> result = smallestNegativeBalance(debts);
         System.out.println("Result: " + result);
         List<String> expected = Arrays.asList("Casey");
-        Assert.assertEquals(expected, result);
+        assertEquals(expected, result);
     }
 
     @Test
@@ -49,7 +50,7 @@ public class Solution2 {
         List<String> result = smallestNegativeBalance(debts);
         System.out.println("Result: " + result);
         List<String> expected = Arrays.asList("Nobody has a negative balance");
-        Assert.assertEquals(expected, result);
+        assertEquals(expected, result);
     }
 
     @Test
@@ -67,7 +68,7 @@ public class Solution2 {
         List<String> result = smallestNegativeBalance(debts);
         System.out.println("Result: " + result);
         List<String> expected = Arrays.asList("Alex", "Casey");
-        Assert.assertEquals(expected, result);
+        assertEquals(expected, result);
     }
 
     public static List<String> smallestNegativeBalance(List<List<String>> debts) {

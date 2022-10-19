@@ -1,6 +1,6 @@
 package demo.exams.twentytwo.ekata;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.time.Duration;
 import java.time.LocalDate;
@@ -93,7 +93,8 @@ public class Result2 {
                     int predictedValue = currentPrice - diff;
                     results.add(predictedValue);
                     String missingTime = currentTime.plusHours(1L).toString();
-                    tempKnownTimestamps.add((i + 1), missingTime);
+                    var formattedMissingTime = missingTime.replace("T", " ");
+                    tempKnownTimestamps.add((i + 1), formattedMissingTime);
                     tempPricesAtKnownTimeStamps.add((i + 1), predictedValue);
                 } else {
 //                    int predictedValue = (int) Math.round(currentPrice * 1.1);
@@ -101,7 +102,8 @@ public class Result2 {
                     int predictedValue = currentPrice + diff;
                     results.add(predictedValue);
                     String missingTime = currentTime.plusHours(1L).toString();
-                    tempKnownTimestamps.add(i + 1, missingTime);
+                    var formattedMissingTime = missingTime.replace("T", " ");
+                    tempKnownTimestamps.add(i + 1, formattedMissingTime);
                     tempPricesAtKnownTimeStamps.add(i + 1, predictedValue);
                 }
             }
