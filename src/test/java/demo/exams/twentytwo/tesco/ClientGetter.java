@@ -1,7 +1,6 @@
 package demo.exams.twentytwo.tesco;
 
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
@@ -12,7 +11,6 @@ import java.util.stream.Collectors;
 public class ClientGetter {
 
     public List<String> getTopKClients(List<ClientTransaction> clientTrans, int k) {
-
         var groupedClientTxs = clientTrans
                 .stream()
                 .collect(Collectors.groupingBy(ClientTransaction::getClientId));
