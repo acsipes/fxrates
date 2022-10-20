@@ -48,7 +48,7 @@ public class ClientGetterTest {
 
         List<ClientTransaction> clientTxList = Arrays.asList(clientTx5, clientTx1, clientTx7, clientTx3, clientTx4, clientTx6, clientTx2, clientTx8);
 
-        int k = 3;
+        var k = 3;
 
         List<String> expected = Arrays.asList("5", "1", "3");
 

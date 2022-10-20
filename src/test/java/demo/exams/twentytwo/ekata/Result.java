@@ -21,7 +21,7 @@ public class Result {
     }
     @Test
     public void run2() {
-        int instances = 5;
+        var instances = 5;
         List<Integer> averageUtil = Arrays.asList(30,5,4,8,19,89);
 
         int result = finalInstances(instances, averageUtil);
