@@ -65,6 +65,53 @@ public class DemoTest {
         underTestString = new AbbriviationCreator();
     }
 
+
+    @Test
+    public void testOITM2022_2() {
+
+        System.out.println(ret());
+
+        String sample = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
+
+        System.out.println(sample.replace("^Lorem", "A"));
+        System.out.println(sample.replaceAll("^Lorem$", "A"));
+        System.out.println(sample.replaceAll("Lorem", "A"));
+
+        System.out.println(sample.replace("Lorem", "A"));
+    }
+
+    private Integer ret() {
+            try {
+                System.out.println("Exceotion");
+                throw new IllegalStateException("I am not giving a number");
+            } finally {
+                System.out.println("finally");
+                return 2;
+            }
+
+    }
+
+
+    @Test
+    public void testIntegerEqualsFromCache() {
+        var number = Integer.valueOf(255);
+        var number2 = Integer.valueOf(255);
+
+        var number3 = Integer.valueOf(127);
+        var number4 = Integer.valueOf(127);
+
+        assertFalse(number == number2);
+        assertTrue(number3 == number4);
+
+        var twoHundred = "200";
+        var text = "2" + "0" + "0";
+        var newString = new String("2") + "0" + "0";
+
+        assertTrue(twoHundred == text);
+        assertFalse(twoHundred == newString);
+
+    }
+
     @Test
     public void testNullSetArrayList() {
 //        Map<Long, List<Omega>> latest = new HashMap<>();
