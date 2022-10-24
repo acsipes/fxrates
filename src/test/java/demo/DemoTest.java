@@ -81,13 +81,13 @@ public class DemoTest {
     }
 
     private Integer ret() {
-            try {
-                System.out.println("Exceotion");
-                throw new IllegalStateException("I am not giving a number");
-            } finally {
-                System.out.println("finally");
-                return 2;
-            }
+        try {
+            System.out.println("Exceotion");
+            throw new IllegalStateException("I am not giving a number");
+        } finally {
+            System.out.println("finally");
+            return 2;
+        }
 
     }
 
@@ -251,22 +251,48 @@ public class DemoTest {
 
         BigInteger result = BigInteger.valueOf(0L);
 
+        var nth = 10;
         long i = 0;
 
         List<BigInteger> fibonaccis = new LinkedList<>();
 
         fibonaccis.add(firstElem);
         fibonaccis.add(secondElem);
-        while (i < 1000) {
+        while (i < nth - 1) {
             result = firstElem.add(secondElem);
             fibonaccis.add(result);
             firstElem = secondElem;
             secondElem = result;
             i++;
         }
-//        fibonaccis.stream().forEach(System.out::println);
         fibonaccis.stream().map(it -> it + ", ")
                 .forEach(System.out::print);
+    }
+
+    @Test
+    public void testFibonacciRecursive() {
+        var n = 30;
+        System.out.println(n + "-th element of Fibonacci = " + fibonacci(n));
+    }
+
+    private int fibonacci(int n) {
+        if (n < 2) {
+            return n;
+        } else {
+            return fibonacci(n - 1) + fibonacci(n - 2);
+        }
+    }
+
+    @Test
+    public void testPrintFibonacci() {
+        var n = 30;
+        for (int i = 0; i < n + 1; i++) {
+            if (i == n) {
+                System.out.print(fibonacci(i) + "\n");
+            } else {
+                System.out.print(fibonacci(i) + ", ");
+            }
+        }
     }
 
     @Test
@@ -444,7 +470,7 @@ public class DemoTest {
         list.add("two");
         list.add("three");
 
-        assertThrows(IndexOutOfBoundsException.class, () ->list.get(4));
+        assertThrows(IndexOutOfBoundsException.class, () -> list.get(4));
 
     }
 
@@ -544,6 +570,7 @@ public class DemoTest {
         public void setIsbn(String isbn) {
             this.isbn = isbn;
         }
+
     }
 
     @Test
@@ -716,7 +743,7 @@ public class DemoTest {
 
     @Test
     public void toTwoInterfaceSameMethodImpl() {
-        new TwoInterfaceImpl().method();
+        System.out.println(new TwoInterfaceImpl().method());
     }
 
     @Test
@@ -1226,8 +1253,9 @@ class Omega {
 class TwoInterfaceImpl implements DemoInterfaceFirst, DemoInterfaceSecond {
 
     @Override
-    public void method() {
+    public Integer method() {
         System.out.println("implementation");
+        return 1;
     }
 }
 

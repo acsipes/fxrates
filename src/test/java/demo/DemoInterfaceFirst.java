@@ -2,5 +2,5 @@ package demo;
 
 public interface DemoInterfaceFirst {
     
-    void method();
+    Integer method();
 }
