@@ -65,6 +65,17 @@ public class DemoTest {
         underTestString = new AbbriviationCreator();
     }
 
+    @Test
+    public void testTwoNumberSwap() {
+        var a = 11;
+        var b = 8;
+        b -= a;
+        a += b;
+        b = a - b;
+        System.out.println("a: " + a);
+        System.out.println("b: " + b);
+    }
+
 
     @Test
     public void testOITM2022_2() {
@@ -243,6 +254,20 @@ public class DemoTest {
                 .toArray();
     }
 
+    @Test
+    public void testingFibonacci() {
+        var n = 10;
+        var first = 0;
+        var second = 1;
+        for (int i = 0; i < n; i++) {
+            System.out.print(first + ",");
+            var temp = first;
+            first = second;
+            second += temp;
+        }
+        System.out.print(first + "\n");
+    }
+
 
     @Test
     public void testFibonacci() {
@@ -251,7 +276,7 @@ public class DemoTest {
 
         BigInteger result = BigInteger.valueOf(0L);
 
-        var nth = 10;
+        var nth = 11;
         long i = 0;
 
         List<BigInteger> fibonaccis = new LinkedList<>();
@@ -272,14 +297,14 @@ public class DemoTest {
     @Test
     public void testFibonacciRecursive() {
         var n = 30;
-        System.out.println(n + "-th element of Fibonacci = " + fibonacci(n));
+        System.out.println(n + "-th element of Fibonacci = " + fibonacciRecursive(n));
     }
 
-    private int fibonacci(int n) {
+    private int fibonacciRecursive(int n) {
         if (n < 2) {
             return n;
         } else {
-            return fibonacci(n - 1) + fibonacci(n - 2);
+            return fibonacciRecursive(n - 1) + fibonacciRecursive(n - 2);
         }
     }
 
@@ -288,9 +313,9 @@ public class DemoTest {
         var n = 30;
         for (int i = 0; i < n + 1; i++) {
             if (i == n) {
-                System.out.print(fibonacci(i) + "\n");
+                System.out.print(fibonacciRecursive(i) + "\n");
             } else {
-                System.out.print(fibonacci(i) + ", ");
+                System.out.print(fibonacciRecursive(i) + ", ");
             }
         }
     }
@@ -536,42 +561,42 @@ public class DemoTest {
     }
 
 
-    class Book {
-        private String name;
-        private int releaseYear;
-        private String isbn;
+class Book {
+    private String name;
+    private int releaseYear;
+    private String isbn;
 
-        public Book(String name, int releaseYear, String isbn) {
-            this.name = name;
-            this.releaseYear = releaseYear;
-            this.isbn = isbn;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public int getReleaseYear() {
-            return releaseYear;
-        }
-
-        public void setReleaseYear(int releaseYear) {
-            this.releaseYear = releaseYear;
-        }
-
-        public String getIsbn() {
-            return isbn;
-        }
-
-        public void setIsbn(String isbn) {
-            this.isbn = isbn;
-        }
-
+    public Book(String name, int releaseYear, String isbn) {
+        this.name = name;
+        this.releaseYear = releaseYear;
+        this.isbn = isbn;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getReleaseYear() {
+        return releaseYear;
+    }
+
+    public void setReleaseYear(int releaseYear) {
+        this.releaseYear = releaseYear;
+    }
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
+
+}
 
     @Test
     public void asciiCode() throws IOException {
